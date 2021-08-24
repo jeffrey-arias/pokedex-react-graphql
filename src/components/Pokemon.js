@@ -9,12 +9,13 @@ const useStyles = makeStyles({
       width: 'calc((100%/3) - 22px)',
       minWidth: '300px',
       margin: '10px',
+      cursor: 'pointer',
     },
     pokemonImage: {
       maxHeight: '200px',
       height: '200px',
       marginTop: '5px',
-    },
+    } ,
     label : {
       textTransform: 'capitalize',
       color: 'black',
@@ -25,16 +26,16 @@ const useStyles = makeStyles({
     }
   });
   
-export default function Pokemon ({pokemon}) {
+export default function Pokemon ({pokemon, handleOpen}) {
     const classes = useStyles();
 
     return(
-        <div className={classes.pokemonContainer} >
+        <div className={classes.pokemonContainer} onClick={handleOpen}>
             <center>
                 <div >
                     <img src={pokemon.artwork} alt={pokemon.name} className={classes.pokemonImage} />
                 </div>
-                <p className={classes.label} >{pokemon.name}</p>
+                <p className={classes.label}>{pokemon.name}</p>
                     
             </center>
         </div>
