@@ -106,16 +106,16 @@ const useStyles = makeStyles({
                   <p>Base SPD: {pokemon.stats[5].base_stat}</p>
                   </>
                 }
-                {pokemon.moves && pokemon.moves.length > 0 && 
-                  <>
-                  <p>Moves: {pokemon.moves[0].move.name}, {pokemon.moves[1].move.name}</p>
-                  </>
-                }
-                {pokemon.abilities && pokemon.abilities.length > 1 && 
-                  <>
-                  <p>Abilities: {pokemon.abilities[0].ability.name}, {pokemon.abilities[1].ability.name}</p>
-                  </>
-                }
+                {pokemon.moves && pokemon.moves.length > 0 &&
+                  <p>Moves: { pokemon.moves.map ( (moves, index) => 
+                    (index < 2) &&
+                    moves.move.name+' '
+                )}</p>}
+                {pokemon.abilities && pokemon.abilities.length > 0 &&
+                  <p>Abilities: { pokemon.abilities.map ( (abilities, index) => 
+                    (index < 2) &&
+                    abilities.ability.name+' '
+                )}</p>}
               </div>
             </div>
           </div>    
